@@ -5,3 +5,10 @@
 
 https://asciinema.org/connect/97cbecb5-1043-437d-9157-6dbadcd24fff
 
+https://asciinema.org/a/buFpxdVi4f9HEXyVSsWsB71lv
+
+https://asciinema.org/a/hJL1yNyBvjfulOVEciTyRzgHx
+
+https://asciinema.org/a/UrmcIss2xrWgEeUO4RDVAZMwK
+
+
