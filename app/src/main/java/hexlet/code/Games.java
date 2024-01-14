@@ -52,7 +52,7 @@ public class Games {
                     correctAnswer = x * y;
                     break;
             }
-            System.out.println("Question: " + x + operations[numOperations] + y);
+            System.out.println("Question: " + x + " " + operations[numOperations] + " " + y);
             System.out.print("Your answer: ");
             String playersResponse = playerRes.nextLine();
             if (correctAnswer == Integer.parseInt(playersResponse)) {
