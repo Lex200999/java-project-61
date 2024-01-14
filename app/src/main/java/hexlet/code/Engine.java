@@ -21,7 +21,9 @@ public class Engine {
         System.out.print("May I have your name? ");
         String userN = userName.next();
         System.out.println("Hello, " + userN + "!");
+
         int numberOfRoundsToWin = 3;
+
         if (choice.equals("2")) {
             if (even() == numberOfRoundsToWin) {
                 System.out.println("Congratulations, " + userN + "!");
