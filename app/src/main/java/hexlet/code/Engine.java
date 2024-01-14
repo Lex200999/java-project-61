@@ -21,36 +21,37 @@ public class Engine {
         System.out.print("May I have your name? ");
         String userN = userName.next();
         System.out.println("Hello, " + userN + "!");
+        int victory = 3;
         if (choice.equals("2")) {
-            if (even() == 3) {
+            if (even() == victory) {
                 System.out.println("Congratulations, " + userN + "!");
             } else {
                 System.out.println("Let's try again, " + userN + "!");
             }
         }
         if (choice.equals("3")) {
-            if (calc() == 3) {
+            if (calc() == victory) {
                 System.out.println("Congratulations, " + userN + "!");
             } else {
                 System.out.println("Let's try again, " + userN + "!");
             }
         }
         if (choice.equals("4")) {
-            if (gcd() == 3) {
+            if (gcd() == victory) {
                 System.out.println("Congratulations, " + userN + "!");
             } else {
                 System.out.println("Let's try again, " + userN + "!");
             }
         }
         if (choice.equals("5")) {
-            if (progression() == 3) {
+            if (progression() == victory) {
                 System.out.println("Congratulations, " + userN + "!");
             } else {
                 System.out.println("Let's try again, " + userN + "!");
             }
         }
         if (choice.equals("6")) {
-            if (prime() == 3) {
+            if (prime() == victory) {
                 System.out.println("Congratulations, " + userN + "!");
             } else {
                 System.out.println("Let's try again, " + userN + "!");

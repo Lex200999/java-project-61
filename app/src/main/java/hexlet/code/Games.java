@@ -8,9 +8,10 @@ public class Games {
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
         Scanner playerRes = new Scanner(System.in);
         Random random = new Random();
+        int upperLimit = 100;
         int i;
         for (i = 0; i <= 2; i++) {
-            int randomNumber = random.nextInt(100);
+            int randomNumber = random.nextInt(upperLimit);
             System.out.println("Question: " + randomNumber);
             String correctAnswer;
             if (randomNumber % 2 == 0) {
@@ -34,12 +35,14 @@ public class Games {
         System.out.println("What is the result of the expression?");
         Scanner playerRes = new Scanner(System.in);
         Random random = new Random();
+        int upperLimit = 30;
+        int numOfOperations = 3;
         String[] operations = {"+", "-", "*"};
         int i;
         for (i = 0; i <= 2; i++) {
-            int x = random.nextInt(30);
-            int y = random.nextInt(30);
-            int numOperations = random.nextInt(3);
+            int x = random.nextInt(upperLimit);
+            int y = random.nextInt(upperLimit);
+            int numOperations = random.nextInt(numOfOperations);
             int correctAnswer = 0;
             switch (operations[numOperations]) {
                 case "+":
@@ -50,6 +53,8 @@ public class Games {
                     break;
                 case "*":
                     correctAnswer = x * y;
+                    break;
+                default:
                     break;
             }
             System.out.println("Question: " + x + " " + operations[numOperations] + " " + y);
@@ -68,10 +73,11 @@ public class Games {
     public static int gcd() {
         System.out.println("Find the greatest common divisor of given numbers.");
         Scanner playerRes = new Scanner(System.in);
+        int upperLimit = 100;
         int i;
         for (i = 0; i <= 2; i++) {
-            int x = (int) (Math.random() * 100) + 1;
-            int y = (int) (Math.random() * 100) + 1;
+            int x = (int) (Math.random() * upperLimit) + 1;
+            int y = (int) (Math.random() * upperLimit) + 1;
             System.out.println("Question: " + x + " " + y);
             while (y != 0) {
                 int z = y;
@@ -94,13 +100,17 @@ public class Games {
         System.out.println("What number is missing in the progression?");
         Scanner playerRes = new Scanner(System.in);
         Random random = new Random();
+        int upperLimit = 30;
+        int forFindNumber10_1 = 6;
+        int forFindNumber10_2 = 5;
+        int numberCycle_10 = 9;
         int i;
         for (i = 0; i <= 2; i++) {
-            int lengthVer = (int) (Math.random() * 6) + 5;
+            int lengthVer = (int) (Math.random() * forFindNumber10_1) + forFindNumber10_2;
             String[] versions = new String[lengthVer];
             int invisible = random.nextInt(lengthVer);
-            int firstSymbol = (int) (Math.random() * 30) + 1;
-            int cycle = (int) (Math.random() * 9) + 1;
+            int firstSymbol = (int) (Math.random() * upperLimit) + 1;
+            int cycle = (int) (Math.random() * numberCycle_10) + 1;
             for (int j = 0; j < lengthVer; j++) {
                 versions[j] = String.valueOf(firstSymbol);
                 firstSymbol += cycle;
@@ -127,9 +137,10 @@ public class Games {
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
         Scanner playerRes = new Scanner(System.in);
         Random random = new Random();
+        int upperLimit = 200;
         int i;
         for (i = 0; i <= 2; i++) {
-            int number = random.nextInt(200);
+            int number = random.nextInt(upperLimit);
             String correctAnswer;
             if (isPrime(number)) {
                 correctAnswer = "yes";
