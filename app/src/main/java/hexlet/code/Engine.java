@@ -21,37 +21,37 @@ public class Engine {
         System.out.print("May I have your name? ");
         String userN = userName.next();
         System.out.println("Hello, " + userN + "!");
-        int victory = 3;
+        int numberOfRoundsToWin = 3;
         if (choice.equals("2")) {
-            if (even() == victory) {
+            if (even() == numberOfRoundsToWin) {
                 System.out.println("Congratulations, " + userN + "!");
             } else {
                 System.out.println("Let's try again, " + userN + "!");
             }
         }
         if (choice.equals("3")) {
-            if (calc() == victory) {
+            if (calc() == numberOfRoundsToWin) {
                 System.out.println("Congratulations, " + userN + "!");
             } else {
                 System.out.println("Let's try again, " + userN + "!");
             }
         }
         if (choice.equals("4")) {
-            if (gcd() == victory) {
+            if (gcd() == numberOfRoundsToWin) {
                 System.out.println("Congratulations, " + userN + "!");
             } else {
                 System.out.println("Let's try again, " + userN + "!");
             }
         }
         if (choice.equals("5")) {
-            if (progression() == victory) {
+            if (progression() == numberOfRoundsToWin) {
                 System.out.println("Congratulations, " + userN + "!");
             } else {
                 System.out.println("Let's try again, " + userN + "!");
             }
         }
         if (choice.equals("6")) {
-            if (prime() == victory) {
+            if (prime() == numberOfRoundsToWin) {
                 System.out.println("Congratulations, " + userN + "!");
             } else {
                 System.out.println("Let's try again, " + userN + "!");
