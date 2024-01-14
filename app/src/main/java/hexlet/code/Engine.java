@@ -22,7 +22,7 @@ public class Engine {
         String userN = userName.next();
         System.out.println("Hello, " + userN + "!");
 
-        int numberOfRoundsToWin = 3;
+        final int numberOfRoundsToWin = 3;
 
         if (choice.equals("2")) {
             if (even() == numberOfRoundsToWin) {

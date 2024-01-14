@@ -9,7 +9,7 @@ public class Games {
         Scanner playerRes = new Scanner(System.in);
         Random random = new Random();
 
-        int greatestNumber = 100;
+        final int greatestNumber = 100;
 
         int i;
         for (i = 0; i <= 2; i++) {
@@ -38,8 +38,8 @@ public class Games {
         Scanner playerRes = new Scanner(System.in);
         Random random = new Random();
 
-        int greatestNumber = 30;
-        int numberOfOperations = 3;
+        final int greatestNumber = 30;
+        final int numberOfOperations = 3;
 
         String[] operations = {"+", "-", "*"};
         int i;
@@ -78,7 +78,7 @@ public class Games {
         System.out.println("Find the greatest common divisor of given numbers.");
         Scanner playerRes = new Scanner(System.in);
 
-        int greatestNumber = 100;
+        final int greatestNumber = 100;
 
         int i;
         for (i = 0; i <= 2; i++) {
@@ -107,10 +107,10 @@ public class Games {
         Scanner playerRes = new Scanner(System.in);
         Random random = new Random();
 
-        int greatestNumber = 30;
-        int forFindNumberTenFirstMeaning = 6;
-        int forFindNumberTenSecondMeaning = 5;
-        int numberOfCycleTen = 9;
+        final int greatestNumber = 30;
+        final int forFindNumberTenFirstMeaning = 6;
+        final int forFindNumberTenSecondMeaning = 5;
+        final int numberOfCycleTen = 9;
 
         int i;
         for (i = 0; i <= 2; i++) {
@@ -146,7 +146,7 @@ public class Games {
         Scanner playerRes = new Scanner(System.in);
         Random random = new Random();
 
-        int greatestNumber = 200;
+        final int greatestNumber = 200;
 
         int i;
         for (i = 0; i <= 2; i++) {
