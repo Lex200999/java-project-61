@@ -3,12 +3,12 @@
 
 <a href="https://codeclimate.com/github/Lex200999/java-project-61/maintainability"><img src="https://api.codeclimate.com/v1/badges/6bf090918527f7e96872/maintainability" /></a>
 
-https://asciinema.org/connect/97cbecb5-1043-437d-9157-6dbadcd24fff
+[![asciicast]({https://asciinema.org/connect/97cbecb5-1043-437d-9157-6dbadcd24fff}.svg)]({https://asciinema.org/connect/97cbecb5-1043-437d-9157-6dbadcd24fff})
 
-https://asciinema.org/a/buFpxdVi4f9HEXyVSsWsB71lv
+[![asciicast]({https://asciinema.org/a/buFpxdVi4f9HEXyVSsWsB71lv}.svg)]({https://asciinema.org/connect/97cbecb5-1043-437d-9157-6dbadcd24fff})
 
-https://asciinema.org/a/hJL1yNyBvjfulOVEciTyRzgHx
+[![asciicast]({https://asciinema.org/a/hJL1yNyBvjfulOVEciTyRzgHx}.svg)]({https://asciinema.org/connect/97cbecb5-1043-437d-9157-6dbadcd24fff})
 
-https://asciinema.org/a/UrmcIss2xrWgEeUO4RDVAZMwK
+[![asciicast]({https://asciinema.org/a/UrmcIss2xrWgEeUO4RDVAZMwK}.svg)]({https://asciinema.org/connect/97cbecb5-1043-437d-9157-6dbadcd24fff})
 
 
