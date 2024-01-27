@@ -33,7 +33,7 @@ public class Even {
             }
         }
         if (i == 3) {
-            System.out.println("Congratulations, " + Engine.getUserName());
+            System.out.println("Congratulations, " + Engine.getUserName() + "!");
         }
     }
 }
