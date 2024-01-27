@@ -17,7 +17,7 @@ public class GCD {
         final int greatestNumber = 100;
 
         int i;
-        for (i = 0; i <= 2; i++) {
+        for (i = 0; i < Engine.getVictoryCondition(); i++) {
             int x = (int) (Math.random() * greatestNumber) + 1;
             int y = (int) (Math.random() * greatestNumber) + 1;
             int firstNumber = x;
@@ -32,7 +32,7 @@ public class GCD {
                 break;
             }
         }
-        if (i == 3) {
+        if (i == Engine.getVictoryCondition()) {
             System.out.println("Congratulations, " + Engine.getUserName() + "!");
         }
     }

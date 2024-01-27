@@ -19,7 +19,7 @@ public class Prime {
         final int greatestNumber = 200;
 
         int i;
-        for (i = 0; i <= 2; i++) {
+        for (i = 0; i < Engine.getVictoryCondition(); i++) {
             int number = random.nextInt(greatestNumber);
             String correctAnswer;
             if (isPrime(number)) {
@@ -32,7 +32,7 @@ public class Prime {
                 break;
             }
         }
-        if (i == 3) {
+        if (i == Engine.getVictoryCondition()) {
             System.out.println("Congratulations, " + Engine.getUserName() + "!");
         }
     }

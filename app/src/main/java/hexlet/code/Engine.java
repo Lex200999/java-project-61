@@ -3,7 +3,8 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
-    public static String userName;
+    private static String userName;
+    private static final int VICTORY = 3;
 
     public static String getUserName() {
         return userName;
@@ -11,6 +12,10 @@ public class Engine {
 
     public static void setUserName(String name) {
         userName = name;
+    }
+
+    public static int getVictoryCondition() {
+        return VICTORY;
     }
 
     public static boolean testString(String question, String correctAnswer) {

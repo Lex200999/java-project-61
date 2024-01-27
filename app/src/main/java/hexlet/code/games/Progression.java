@@ -22,7 +22,7 @@ public class Progression {
         final int numberOfCycleTen = 9;
 
         int i;
-        for (i = 0; i <= 2; i++) {
+        for (i = 0; i < Engine.getVictoryCondition(); i++) {
             int lengthVer = (int) (Math.random() * forFindNumberTenFirstMeaning) + forFindNumberTenSecondMeaning;
             String[] versions = new String[lengthVer];
             int invisible = random.nextInt(lengthVer);
@@ -42,7 +42,7 @@ public class Progression {
                 break;
             }
         }
-        if (i == 3) {
+        if (i == Engine.getVictoryCondition()) {
             System.out.println("Congratulations, " + Engine.getUserName() + "!");
         }
     }

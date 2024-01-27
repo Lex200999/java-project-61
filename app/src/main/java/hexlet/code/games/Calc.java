@@ -21,7 +21,7 @@ public class Calc {
 
         String[] operations = {"+", "-", "*"};
         int i;
-        for (i = 0; i <= 2; i++) {
+        for (i = 0; i < Engine.getVictoryCondition(); i++) {
             int x = random.nextInt(greatestNumber);
             int y = random.nextInt(greatestNumber);
             int numOperations = random.nextInt(numberOfOperations);
@@ -44,7 +44,7 @@ public class Calc {
                 break;
             }
         }
-        if (i == 3) {
+        if (i == Engine.getVictoryCondition()) {
             System.out.println("Congratulations, " + Engine.getUserName() + "!");
         }
     }

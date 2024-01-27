@@ -19,7 +19,7 @@ public class Even {
         final int greatestNumber = 100;
 
         int i;
-        for (i = 0; i <= 2; i++) {
+        for (i = 0; i <  Engine.getVictoryCondition(); i++) {
             int randomNumber = random.nextInt(greatestNumber);
             String correctAnswer;
             if (randomNumber % 2 == 0) {
@@ -32,7 +32,7 @@ public class Even {
                 break;
             }
         }
-        if (i == 3) {
+        if (i == Engine.getVictoryCondition()) {
             System.out.println("Congratulations, " + Engine.getUserName() + "!");
         }
     }
