@@ -8,7 +8,7 @@ public class GCD {
     public static void gcd() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to the Brain Games!");
-        System.out.print("What is your name? ");
+        System.out.print("May I have your name? ");
         String userName = scanner.next();
         Engine.setUserName(userName);
         System.out.println("Hello, " + Engine.getUserName() + "!");
