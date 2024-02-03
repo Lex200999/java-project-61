@@ -3,49 +3,34 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 import java.util.Random;
-import java.util.Scanner;
 
 public class Prime {
+    private static final String RULES = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+    private static final int GREATEST_NUMBER = 200;
     public static void prime() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Welcome to the Brain Games!");
-        System.out.print("May I have your name? ");
-        String userName = scanner.next();
-        Engine.setUserName(userName);
-        System.out.println("Hello, " + Engine.getUserName() + "!");
-        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
+        Engine.setCondition(RULES);
         Random random = new Random();
-
-        final int greatestNumber = 200;
-
-        int i;
-        for (i = 0; i < Engine.getVictoryCondition(); i++) {
-            int number = random.nextInt(greatestNumber);
-            String correctAnswer;
-            if (isPrime(number)) {
-                correctAnswer = "yes";
-            } else {
-                correctAnswer = "no";
-            }
-            String question = Integer.toString(number);
-            if (!(Engine.testString(question, correctAnswer))) {
-                break;
-            }
+        String[] correctAnswer = new String[Engine.getVictoryCondition()];
+        String[] question = new String[Engine.getVictoryCondition()];
+        for (int i = 0; i < Engine.getVictoryCondition(); i++) {
+            int number = random.nextInt(GREATEST_NUMBER);
+            correctAnswer[i] = isPrime(number);
+            question[i] = String.valueOf(number);
         }
-        if (i == Engine.getVictoryCondition()) {
-            System.out.println("Congratulations, " + Engine.getUserName() + "!");
-        }
+        Engine.setCorrectAnswer(correctAnswer);
+        Engine.setQuestion(question);
+        Engine.theGame();
     }
 
-    public static boolean isPrime(int num) {
+    private static String isPrime(int num) {
         if (num <= 1) {
-            return false;
+            return "no";
         }
         for (int i = 2; i * i <= num; i++) {
             if (num % i == 0) {
-                return false;
+                return "no";
             }
         }
-        return true;
+        return "yes";
     }
 }

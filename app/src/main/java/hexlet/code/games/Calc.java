@@ -3,49 +3,44 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 import java.util.Random;
-import java.util.Scanner;
 
 public class Calc {
+    private static final String RULES = "What is the result of the expression?";
+    private static final int GREATEST_NUMBER = 30;
+    private static final int NUMBER_OF_OPERATIONS = 3;
     public static void calc() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Welcome to the Brain Games!");
-        System.out.print("May I have your name? ");
-        String userName = scanner.next();
-        Engine.setUserName(userName);
-        System.out.println("Hello, " + Engine.getUserName() + "!");
-        System.out.println("What is the result of the expression?");
+        Engine.setCondition(RULES);
         Random random = new Random();
-
-        final int greatestNumber = 30;
-        final int numberOfOperations = 3;
-
+        String[] correctAnswer = new String[Engine.getVictoryCondition()];
+        String[] question = new String[Engine.getVictoryCondition()];
         String[] operations = {"+", "-", "*"};
-        int i;
-        for (i = 0; i < Engine.getVictoryCondition(); i++) {
-            int x = random.nextInt(greatestNumber);
-            int y = random.nextInt(greatestNumber);
-            int numOperations = random.nextInt(numberOfOperations);
-            int correctAnswer = 0;
-            switch (operations[numOperations]) {
-                case "+":
-                    correctAnswer = x + y;
-                    break;
-                case "-":
-                    correctAnswer = x - y;
-                    break;
-                case "*":
-                    correctAnswer = x * y;
-                    break;
-                default:
-                    break;
-            }
-            String question = x + " " + operations[numOperations] + " " + y;
-            if (!(Engine.testString(question, Integer.toString(correctAnswer)))) {
+        for (int i = 0; i < Engine.getVictoryCondition(); i++) {
+            int x = random.nextInt(GREATEST_NUMBER);
+            int y = random.nextInt(GREATEST_NUMBER);
+            int numOperations = random.nextInt(NUMBER_OF_OPERATIONS);
+            correctAnswer[i] = String.valueOf(calcGame(x, y, numOperations));
+            question[i] = x + operations[numOperations] + y;
+        }
+        Engine.setCorrectAnswer(correctAnswer);
+        Engine.setQuestion(question);
+        Engine.theGame();
+    }
+    private static int calcGame(int x, int y, int operator) {
+        int correctAnswer = 0;
+        String[] operations = {"+", "-", "*"};
+        switch (operations[operator]) {
+            case "+":
+                correctAnswer = x + y;
                 break;
-            }
+            case "-":
+                correctAnswer = x - y;
+                break;
+            case "*":
+                correctAnswer = x * y;
+                break;
+            default:
+                break;
         }
-        if (i == Engine.getVictoryCondition()) {
-            System.out.println("Congratulations, " + Engine.getUserName() + "!");
-        }
+        return correctAnswer;
     }
 }

@@ -2,38 +2,29 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
-import java.util.Scanner;
-
 public class GCD {
+    private static final String RULES = "Find the greatest common divisor of given numbers.";
+    private static final int GREATEST_NUMBER = 100;
     public static void gcd() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Welcome to the Brain Games!");
-        System.out.print("May I have your name? ");
-        String userName = scanner.next();
-        Engine.setUserName(userName);
-        System.out.println("Hello, " + Engine.getUserName() + "!");
-        System.out.println("Find the greatest common divisor of given numbers.");
-
-        final int greatestNumber = 100;
-
-        int i;
-        for (i = 0; i < Engine.getVictoryCondition(); i++) {
-            int x = (int) (Math.random() * greatestNumber) + 1;
-            int y = (int) (Math.random() * greatestNumber) + 1;
-            int firstNumber = x;
-            int secondNumber = y;
-            while (y != 0) {
-                int z = y;
-                y = x % y;
-                x = z;
-            }
-            String  question = firstNumber + " " + secondNumber;
-            if (!(Engine.testString(question, Integer.toString(x)))) {
-                break;
-            }
+        Engine.setCondition(RULES);
+        String[] correctAnswer = new String[Engine.getVictoryCondition()];
+        String[] question = new String[Engine.getVictoryCondition()];
+        for (int i = 0; i < Engine.getVictoryCondition(); i++) {
+            int x = (int) (Math.random() * GREATEST_NUMBER) + 1;
+            int y = (int) (Math.random() * GREATEST_NUMBER) + 1;
+            correctAnswer[i] = gcdGame(x, y);
+            question[i] = x + " " + y;
         }
-        if (i == Engine.getVictoryCondition()) {
-            System.out.println("Congratulations, " + Engine.getUserName() + "!");
+        Engine.setCorrectAnswer(correctAnswer);
+        Engine.setQuestion(question);
+        Engine.theGame();
+    }
+    private static String gcdGame(int a, int b) {
+        while (b != 0) {
+            int z = b;
+            b = a % b;
+            a = z;
         }
+        return Integer.toString(a);
     }
 }
