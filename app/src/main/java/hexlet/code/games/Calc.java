@@ -19,7 +19,7 @@ public class Calc {
             int y = random.nextInt(GREATEST_NUMBER);
             int numOperations = random.nextInt(NUMBER_OF_OPERATIONS);
             correctAnswer[i] = String.valueOf(calcGame(x, y, numOperations));
-            question[i] = x + operations[numOperations] + y;
+            question[i] = x + " " + operations[numOperations] + " " + y;
         }
         Engine.setCorrectAnswer(correctAnswer);
         Engine.setQuestion(question);
