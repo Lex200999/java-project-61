@@ -30,7 +30,7 @@ public class Engine {
         System.out.println(condition);
         int winningRounds = 0;
         for (int i = 0; i < VICTORY; i++) {
-            System.out.println(question[i]);
+            System.out.println("Question: " + question[i]);
             System.out.print("Your answer: ");
             String playerResponse = playerRes.nextLine();
             if (playerResponse.equals(correctAnswer[i])) {
