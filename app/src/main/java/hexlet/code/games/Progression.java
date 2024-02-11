@@ -13,27 +13,32 @@ public class Progression {
     public static void progression() {
         Engine.setCondition(RULES);
         Random random = new Random();
-        String[] correctAnswer = new String[Engine.getVictoryCondition()];
-        String[] question = new String[Engine.getVictoryCondition()];
+        String[][] data = new String[Engine.getVictoryCondition()][2];
         for (int i = 0; i < Engine.getVictoryCondition(); i++) {
-            int lengthVer = (int) (Math.random() * FOR_FIND_NUMBER_TEN_FIRST) + FOR_FIND_NUMBER_TEN_SECOND;
-            int invisible = random.nextInt(lengthVer);
-
-            String[] array = progressionGame(lengthVer);
-            correctAnswer[i] = array[invisible];
-            array[invisible] = "..";
-            question[i] = String.join(" ", array);
+            for (int j = 0; j < 2; j++) {
+                int lengthVer = (int) (Math.random() * FOR_FIND_NUMBER_TEN_FIRST) + FOR_FIND_NUMBER_TEN_SECOND;
+                int cycle = (int) (Math.random() * NUMBER_OF_CYCLE_TEN) + 1;
+                int firstSymbol = (int) (Math.random() * GREATEST_NUMBER) + 1;
+                int invisible = random.nextInt(lengthVer);
+                int[] arrayInt = progressionGame(lengthVer, cycle, firstSymbol);
+                String[] array = new String[lengthVer];
+                for (int k = 0; k < arrayInt.length; k++) {
+                    array[k] = String.valueOf(arrayInt[k]);
+                }
+                String correctAnswer = array[invisible];
+                array[invisible] = "..";
+                String question = String.join(" ", array);
+                data[i][j] = question;
+                j++;
+                data[i][j] = correctAnswer;
+            }
         }
-        Engine.setCorrectAnswer(correctAnswer);
-        Engine.setQuestion(question);
-        Engine.theGame();
+        Engine.play(data);
     }
-    private static String[] progressionGame(int length) {
-        String[] versions = new String[length];
-        int firstSymbol = (int) (Math.random() * GREATEST_NUMBER) + 1;
-        int cycle = (int) (Math.random() * NUMBER_OF_CYCLE_TEN) + 1;
+    private static int[] progressionGame(int length, int cycle, int firstSymbol) {
+        int[] versions = new int[length];
         for (int j = 0; j < length; j++) {
-            versions[j] = String.valueOf(firstSymbol);
+            versions[j] = firstSymbol;
             firstSymbol += cycle;
         }
         return versions;

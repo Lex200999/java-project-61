@@ -1,3 +1,7 @@
+Welcome to the game "Brain Games"!
+The game presents a choice between several games in which you have to show your mental abilities.
+The controls in the game are quite simple. After entering your name, just follow the instructions, 
+answer the questions and don't forget that this is just a game. Enjoy it!
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/Lex200999/java-project-61/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/Lex200999/java-project-61/actions)
 

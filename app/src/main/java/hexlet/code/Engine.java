@@ -5,22 +5,14 @@ import java.util.Scanner;
 public class Engine {
     private static final int VICTORY = 3;
     private static String condition;
-    private static String[] question = new String[VICTORY];
-    private static String[] correctAnswer = new String[VICTORY];
     public static void setCondition(String conditionApp) {
         condition = conditionApp;
     }
     public static int getVictoryCondition() {
         return VICTORY;
     }
-    public static void setQuestion(String[] questionApp) {
-        question = questionApp;
-    }
-    public static void setCorrectAnswer(String[] correctAnswerApp) {
-        correctAnswer = correctAnswerApp;
-    }
 
-    public static void theGame() {
+    public static void play(String[][] data) {
         Scanner scanner = new Scanner(System.in);
         Scanner playerRes = new Scanner((System.in));
         System.out.println("Welcome to the Brain Games!");
@@ -29,17 +21,21 @@ public class Engine {
         System.out.println("Hello, " + userName + "!");
         System.out.println(condition);
         int winningRounds = 0;
+        wrongAnswer:
         for (int i = 0; i < VICTORY; i++) {
-            System.out.println("Question: " + question[i]);
-            System.out.print("Your answer: ");
-            String playerResponse = playerRes.nextLine();
-            if (playerResponse.equals(correctAnswer[i])) {
-                System.out.println("Correct!");
-                winningRounds++;
-            } else {
-                System.out.print("'" + playerResponse + "'" + " is wrong answer ;(");
-                System.out.println(". Correct answer was '" + correctAnswer[i] + "'.");
-                break;
+            for (int j = 0; j < 2; j++) {
+                System.out.println("Question: " + data[i][j]);
+                System.out.print("Your answer: ");
+                String playerResponse = playerRes.nextLine();
+                j++;
+                if (playerResponse.equals(data[i][j])) {
+                    System.out.println("Correct!");
+                    winningRounds++;
+                } else {
+                    System.out.print("'" + playerResponse + "'" + " is wrong answer ;(");
+                    System.out.println(". Correct answer was '" + data[i][j] + "'.");
+                    break wrongAnswer;
+                }
             }
         }
         if (winningRounds == VICTORY) {

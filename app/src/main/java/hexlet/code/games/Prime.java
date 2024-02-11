@@ -10,27 +10,34 @@ public class Prime {
     public static void prime() {
         Engine.setCondition(RULES);
         Random random = new Random();
-        String[] correctAnswer = new String[Engine.getVictoryCondition()];
-        String[] question = new String[Engine.getVictoryCondition()];
+        String[][] data = new String[Engine.getVictoryCondition()][2];
         for (int i = 0; i < Engine.getVictoryCondition(); i++) {
-            int number = random.nextInt(GREATEST_NUMBER);
-            correctAnswer[i] = isPrime(number);
-            question[i] = String.valueOf(number);
+            for (int j = 0; j < 2; j++) {
+                int number = random.nextInt(GREATEST_NUMBER);
+                String question = String.valueOf(number);
+                String correctAnswer;
+                if (isPrime(number)) {
+                    correctAnswer = "yes";
+                } else {
+                    correctAnswer = "no";
+                }
+                data[i][j] = question;
+                j++;
+                data[i][j] = correctAnswer;
+            }
         }
-        Engine.setCorrectAnswer(correctAnswer);
-        Engine.setQuestion(question);
-        Engine.theGame();
+        Engine.play(data);
     }
 
-    private static String isPrime(int num) {
+    private static boolean isPrime(int num) {
         if (num <= 1) {
-            return "no";
+            return false;
         }
         for (int i = 2; i * i <= num; i++) {
             if (num % i == 0) {
-                return "no";
+                return false;
             }
         }
-        return "yes";
+        return true;
     }
 }

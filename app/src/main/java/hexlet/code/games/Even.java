@@ -10,24 +10,25 @@ public class Even {
     public static void even() {
         Engine.setCondition(RULES);
         Random random = new Random();
-        String[] correctAnswer = new String[Engine.getVictoryCondition()];
-        String[] question = new String[Engine.getVictoryCondition()];
-        for (int i = 0; i <  Engine.getVictoryCondition(); i++) {
-            int randomNumber = random.nextInt(GREATEST_NUMBER);
-            correctAnswer[i] = evenGame(randomNumber);
-            question[i] = String.valueOf(randomNumber);
+        String[][] data = new String[Engine.getVictoryCondition()][2];
+        for (int i = 0; i < Engine.getVictoryCondition(); i++) {
+            for (int j = 0; j < 2; j++) {
+                int randomNumber = random.nextInt(GREATEST_NUMBER);
+                String question = String.valueOf(randomNumber);
+                String correctAnswer;
+                if (evenGame(randomNumber)) {
+                    correctAnswer = "yes";
+                } else {
+                    correctAnswer = "no";
+                }
+                data[i][j] = question;
+                j++;
+                data[i][j] = correctAnswer;
+            }
         }
-        Engine.setCorrectAnswer(correctAnswer);
-        Engine.setQuestion(question);
-        Engine.theGame();
+        Engine.play(data);
     }
-    private static String evenGame(int x) {
-        String correctAnswer;
-        if (x % 2 == 0) {
-            correctAnswer = "yes";
-        } else {
-            correctAnswer = "no";
-        }
-        return correctAnswer;
+    private static boolean evenGame(int x) {
+        return x % 2 == 0;
     }
 }

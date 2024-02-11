@@ -39,7 +39,9 @@ public class App {
                 break;
             case "6" :
                 prime();
+                break;
             default:
+                System.out.println("Unfortunately, we don't have such a game :(");
                 break;
         }
     }

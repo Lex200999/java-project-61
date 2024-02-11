@@ -7,26 +7,28 @@ import java.util.Random;
 public class Calc {
     private static final String RULES = "What is the result of the expression?";
     private static final int GREATEST_NUMBER = 30;
-    private static final int NUMBER_OF_OPERATIONS = 3;
+    private static final int NUMBER_OF_OPERATIONS = 2;
     public static void calc() {
         Engine.setCondition(RULES);
         Random random = new Random();
-        String[] correctAnswer = new String[Engine.getVictoryCondition()];
-        String[] question = new String[Engine.getVictoryCondition()];
+        String[][] data = new String[Engine.getVictoryCondition()][2];
         String[] operations = {"+", "-", "*"};
         for (int i = 0; i < Engine.getVictoryCondition(); i++) {
-            int x = random.nextInt(GREATEST_NUMBER);
-            int y = random.nextInt(GREATEST_NUMBER);
-            int numOperations = random.nextInt(NUMBER_OF_OPERATIONS);
-            correctAnswer[i] = String.valueOf(calcGame(x, y, numOperations));
-            question[i] = x + " " + operations[numOperations] + " " + y;
+            for (int j = 0; j < 2; j++) {
+                int x = random.nextInt(GREATEST_NUMBER);
+                int y = random.nextInt(GREATEST_NUMBER);
+                int numOperations = random.nextInt(NUMBER_OF_OPERATIONS);
+                String question = x + " " + operations[numOperations] + " " + y;
+                String correctAnswer = String.valueOf(calcGame(x, y, numOperations));
+                data[i][j] = question;
+                j++;
+                data[i][j] = correctAnswer;
+            }
         }
-        Engine.setCorrectAnswer(correctAnswer);
-        Engine.setQuestion(question);
-        Engine.theGame();
+        Engine.play(data);
     }
     private static int calcGame(int x, int y, int operator) {
-        int correctAnswer = 0;
+        Integer correctAnswer;
         String[] operations = {"+", "-", "*"};
         switch (operations[operator]) {
             case "+":
@@ -39,6 +41,7 @@ public class Calc {
                 correctAnswer = x * y;
                 break;
             default:
+                correctAnswer = null;
                 break;
         }
         return correctAnswer;
