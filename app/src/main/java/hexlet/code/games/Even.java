@@ -4,11 +4,12 @@ import hexlet.code.Engine;
 
 public class Even {
     private static final String RULES = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+    private static final int MAX = 100;
     public static void even() {
         String[][] data = new String[Engine.VICTORY][2];
         for (int i = 0; i < Engine.VICTORY; i++) {
             for (int j = 0; j < 2; j++) {
-                int randomNumber = Utils.getRandomInt(1, 100);
+                int randomNumber = Utils.getRandomInt(1, MAX);
                 String question = String.valueOf(randomNumber);
                 String correctAnswer;
                 if (evenGame(randomNumber)) {

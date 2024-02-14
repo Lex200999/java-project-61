@@ -2,16 +2,14 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
-import java.util.Random;
-
 public class Prime {
     private static final String RULES = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+    private static final int MAX = 200;
     public static void prime() {
-        Random random = new Random();
         String[][] data = new String[Engine.VICTORY][2];
         for (int i = 0; i < Engine.VICTORY; i++) {
             for (int j = 0; j < 2; j++) {
-                int number = Utils.getRandomInt(1, 200);
+                int number = Utils.getRandomInt(1, MAX);
                 String question = String.valueOf(number);
                 String correctAnswer;
                 if (isPrime(number)) {
