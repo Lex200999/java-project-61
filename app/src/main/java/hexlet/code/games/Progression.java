@@ -11,7 +11,7 @@ public class Progression {
         String[][] data = new String[Engine.VICTORY][2];
         for (int i = 0; i < Engine.VICTORY; i++) {
             for (int j = 0; j < 2; j++) {
-                int lengthVer = Utils.getRandomInt(1, 10);
+                int lengthVer = Utils.getRandomInt(5, 6);
                 int cycle = Utils.getRandomInt(1, 10);
                 int firstSymbol = Utils.getRandomInt(1, 30);
                 int invisible = random.nextInt(lengthVer);
