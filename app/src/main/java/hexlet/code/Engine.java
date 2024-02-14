@@ -3,16 +3,9 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
-    private static final int VICTORY = 3;
-    private static String condition;
-    public static void setCondition(String conditionApp) {
-        condition = conditionApp;
-    }
-    public static int getVictoryCondition() {
-        return VICTORY;
-    }
+    public static final int VICTORY = 3;
 
-    public static void play(String[][] data) {
+    public static void play(String[][] data, String condition) {
         Scanner scanner = new Scanner(System.in);
         Scanner playerRes = new Scanner((System.in));
         System.out.println("Welcome to the Brain Games!");
@@ -21,7 +14,6 @@ public class Engine {
         System.out.println("Hello, " + userName + "!");
         System.out.println(condition);
         int winningRounds = 0;
-        wrongAnswer:
         for (int i = 0; i < VICTORY; i++) {
             for (int j = 0; j < 2; j++) {
                 System.out.println("Question: " + data[i][j]);
@@ -34,8 +26,11 @@ public class Engine {
                 } else {
                     System.out.print("'" + playerResponse + "'" + " is wrong answer ;(");
                     System.out.println(". Correct answer was '" + data[i][j] + "'.");
-                    break wrongAnswer;
+                    break;
                 }
+            }
+            if (i == winningRounds) {
+                break;
             }
         }
         if (winningRounds == VICTORY) {

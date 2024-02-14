@@ -6,14 +6,12 @@ import java.util.Random;
 
 public class Prime {
     private static final String RULES = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-    private static final int GREATEST_NUMBER = 200;
     public static void prime() {
-        Engine.setCondition(RULES);
         Random random = new Random();
-        String[][] data = new String[Engine.getVictoryCondition()][2];
-        for (int i = 0; i < Engine.getVictoryCondition(); i++) {
+        String[][] data = new String[Engine.VICTORY][2];
+        for (int i = 0; i < Engine.VICTORY; i++) {
             for (int j = 0; j < 2; j++) {
-                int number = random.nextInt(GREATEST_NUMBER);
+                int number = Utils.getRandomInt(1, 200);
                 String question = String.valueOf(number);
                 String correctAnswer;
                 if (isPrime(number)) {
@@ -26,7 +24,7 @@ public class Prime {
                 data[i][j] = correctAnswer;
             }
         }
-        Engine.play(data);
+        Engine.play(data, RULES);
     }
 
     private static boolean isPrime(int num) {

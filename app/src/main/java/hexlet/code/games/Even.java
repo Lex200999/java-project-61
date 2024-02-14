@@ -2,18 +2,13 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
-import java.util.Random;
-
 public class Even {
     private static final String RULES = "Answer 'yes' if the number is even, otherwise answer 'no'.";
-    private static final int GREATEST_NUMBER = 100;
     public static void even() {
-        Engine.setCondition(RULES);
-        Random random = new Random();
-        String[][] data = new String[Engine.getVictoryCondition()][2];
-        for (int i = 0; i < Engine.getVictoryCondition(); i++) {
+        String[][] data = new String[Engine.VICTORY][2];
+        for (int i = 0; i < Engine.VICTORY; i++) {
             for (int j = 0; j < 2; j++) {
-                int randomNumber = random.nextInt(GREATEST_NUMBER);
+                int randomNumber = Utils.getRandomInt(1, 100);
                 String question = String.valueOf(randomNumber);
                 String correctAnswer;
                 if (evenGame(randomNumber)) {
@@ -26,7 +21,7 @@ public class Even {
                 data[i][j] = correctAnswer;
             }
         }
-        Engine.play(data);
+        Engine.play(data, RULES);
     }
     private static boolean evenGame(int x) {
         return x % 2 == 0;
